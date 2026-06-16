@@ -1,0 +1,59 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+const {
+  title = "Yibo Zhou",
+  description = "Personal academic website of Yibo Zhou"
+} = Astro.props;
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/research/", label: "Research" },
+  { href: "/publications/", label: "Publications" },
+  { href: "/cv/", label: "CV" },
+  { href: "/presentations/", label: "Presentations" },
+  { href: "/gallery/", label: "Gallery" },
+  { href: "/contact/", label: "Contact" }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="site-title" href="/">Yibo Zhou</a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class={currentPath === item.href ? "active" : ""}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+
+    <main class="page-shell" transition:animate="fade">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      © {new Date().getFullYear()} Yibo Zhou
+    </footer>
+  </body>
+</html>

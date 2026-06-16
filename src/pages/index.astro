@@ -1,11 +1,35 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Yibo Zhou | Academic Homepage">
+  <section class="home-hero">
+    <p class="home-subtitle">
+      PhD Candidate, School of Earth Sciences and Engineering, Nanjing University
+    </p>
+
+    <h1>Yibo Zhou</h1>
+
+    <p class="home-intro">
+      I work on sexual selection in Mesozoic birds and non-avian dinosaurs,
+      with additional interests in how early feather functions, including
+      display, insulation, and flight, evolved.
+    </p>
+
+    <div class="home-links">
+      <a href="https://scholar.google.com/citations?user=UhHTMJAAAAAJ&hl" target="_blank" rel="noopener">
+        Google Scholar
+      </a>
+      <a href="https://www.researchgate.net/profile/Yibo-Zhou-8" target="_blank" rel="noopener">
+        ResearchGate
+      </a>
+      <a href="https://github.com/BOBOXY" target="_blank" rel="noopener">
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <section class="motto">
+    Always explore something new
+  </section>
+</BaseLayout>
